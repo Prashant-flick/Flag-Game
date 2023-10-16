@@ -32,7 +32,7 @@ function App() {
       }
       setTimeout(() => {
         next();
-      }, 2000);
+      }, 1000);
     }else{
       if(lives==1){
         alert("Game Over");
