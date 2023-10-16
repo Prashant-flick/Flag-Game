@@ -113,12 +113,12 @@ function App() {
           <label className='font-bold text-xl' htmlFor="">
             SCORE : {score}
           </label>
-          <button
+          {/* <button
             className='font-bold text-2xl text-white border-2 px-2 mb-1 rounded-2xl mt-1'
             onClick={next}
           >
             NEXT
-          </button>
+          </button> */}
           <label className='font-bold text-xl' htmlFor="">
             LIVES : {lives}
           </label>
