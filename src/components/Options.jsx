@@ -31,10 +31,10 @@ function Options({
         "ZA", "ZM", "ZW"
     ];
 
-    console.log(countryCodes.length)
+    // console.log(countryCodes.length)
     
     const countryCode = countryCodes[countryCodeIdx].toLowerCase();
-    console.log(countryCode)
+    // console.log(countryCode)
 
   return (
     <div className={`w-1/2 h-1/2 flex justify-center items-center border-x-2 border-y-2 ${classadd}`}>
@@ -42,7 +42,6 @@ function Options({
             className="border-2 border-blue-100"
             src={`https://flagcdn.com/w160/${countryCode}.png`}
             width="160"
-            alt={classadd}
             onClick={() => onCodeChange && onCodeChange(countryCodeIdx)}
         />
     </div>

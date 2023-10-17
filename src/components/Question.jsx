@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 // import React from 'react'
 import { useEffect, useState } from "react";
 
 function Question({
   countryCodeIdx=0,
-
 }) {
 
   const countryCodes = [
@@ -37,10 +37,8 @@ function Question({
     useEffect(()=> {
         fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
         .then((res) => res.json())
-        .then((res) => res[0])
-        .then((res) => res.name)
-        .then((res) => setcountryname(res.common))
-    }, [countryCodeIdx, countryCode])
+        .then((res) => setcountryname(res[0].name.common))
+    }, [countryCode])
 
   return (
         <h1 

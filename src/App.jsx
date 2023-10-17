@@ -1,4 +1,4 @@
-import { useState , useEffect} from 'react'
+import { useState } from 'react'
 import { Question, Options } from './components/Index.js'
 
 function App() {
@@ -11,9 +11,6 @@ function App() {
   const [bgColor2, setbgColor2] = useState('bg-gray-600')
   const [bgColor3, setbgColor3] = useState('bg-gray-600')
   const [bgColor4, setbgColor4] = useState('bg-gray-600')
-  const randonIndex = () => {
-    return Math.floor(Math.random() * 248);
-  }
 
   const [score, setScore] = useState(0)
   const [lives, setlives] = useState(3)
@@ -30,11 +27,9 @@ function App() {
       }else{
         setbgColor4('bg-green-500');
       }
-      setTimeout(() => {
-        next();
-      }, 1000);
+      next();
     }else{
-      if(lives==0){
+      if(lives==1){
         alert("Game Over");
         setlives(3);
         setScore(0);
@@ -55,29 +50,25 @@ function App() {
   }
 
   const next = () => {
-    setindex1(randonIndex());
-    setindex2(randonIndex());
-    setindex3(randonIndex());
-    setindex4(randonIndex());
-    setbgColor1('bg-gray-600');
-    setbgColor2('bg-gray-600');
-    setbgColor3('bg-gray-600');
-    setbgColor4('bg-gray-600');
+    const random = [
+      Math.floor(Math.random() * 248),
+      Math.floor(Math.random() * 248),
+      Math.floor(Math.random() * 248),
+      Math.floor(Math.random() * 248),
+      (Math.floor(Math.random()*4))
+    ]
+    setTimeout(() => {
+      setindex0(random[random[4]]);
+      setindex1(random[0]);
+      setindex2(random[1]);
+      setindex3(random[2]);
+      setindex4(random[3]);
+      setbgColor1('bg-gray-600');
+      setbgColor2('bg-gray-600');
+      setbgColor3('bg-gray-600');
+      setbgColor4('bg-gray-600');
+    }, 1000);
   }
-
-  useEffect(()=> {
-    const random4 = Math.floor(Math.random()*4+1);
-    console.log(random4);
-    if(random4==1){
-      setindex0(index1);
-    }else if(random4==2){
-      setindex0(index2);
-    }else if(random4==3){
-      setindex0(index3);
-    }else{
-      setindex0(index4);
-    }
-  } ,[index1]) 
 
   return (
     <div className='h-screen w-full flex flex-wrap justify-center items-center bg-cover bg-no-repeat bg-gray-800'>
