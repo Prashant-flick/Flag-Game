@@ -51,10 +51,10 @@ function App() {
 
   const next = () => {
     const random = [
-      Math.floor(Math.random() * 248),
-      Math.floor(Math.random() * 248),
-      Math.floor(Math.random() * 248),
-      Math.floor(Math.random() * 248),
+      Math.floor(Math.random() * 194),
+      Math.floor(Math.random() * 194),
+      Math.floor(Math.random() * 194),
+      Math.floor(Math.random() * 194),
       (Math.floor(Math.random()*4))
     ]
     setTimeout(() => {
