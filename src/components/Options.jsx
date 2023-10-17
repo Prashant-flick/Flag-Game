@@ -37,12 +37,14 @@ function Options({
     // console.log(countryCode)
 
   return (
-    <div className={`w-1/2 h-1/2 flex justify-center items-center border-x-2 border-y-2 ${classadd}`}>
+    <div
+      className={`w-1/2 h-1/2 flex justify-center items-center border-x-2 border-y-2 ${classadd}`}
+      onClick={() => onCodeChange && onCodeChange(countryCodeIdx)}
+      >
         <img
             className="border-2 border-blue-100"
             src={`https://flagcdn.com/w160/${countryCode}.png`}
             width="160"
-            onClick={() => onCodeChange && onCodeChange(countryCodeIdx)}
         />
     </div>
   )

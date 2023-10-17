@@ -59,6 +59,8 @@ function App() {
     ]
     setTimeout(() => {
       setindex0(random[random[4]]);
+    }, 600);
+    setTimeout(() => {
       setindex1(random[0]);
       setindex2(random[1]);
       setindex3(random[2]);
@@ -67,7 +69,7 @@ function App() {
       setbgColor2('bg-gray-600');
       setbgColor3('bg-gray-600');
       setbgColor4('bg-gray-600');
-    }, 1000);
+    }, 800);
   }
 
   return (
