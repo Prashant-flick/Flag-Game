@@ -34,7 +34,7 @@ function App() {
         next();
       }, 1000);
     }else{
-      if(lives==1){
+      if(lives==0){
         alert("Game Over");
         setlives(3);
         setScore(0);
@@ -109,8 +109,8 @@ function App() {
             classadd={bgColor4}
           />
         </div>
-        <div className='flex items-center justify-evenly'>
-          <label className='font-bold text-xl' htmlFor="">
+        <div className='flex items-center justify-evenly my-3'>
+          <label className='font-bold text-3xl' htmlFor="">
             SCORE : {score}
           </label>
           {/* <button
@@ -119,7 +119,7 @@ function App() {
           >
             NEXT
           </button> */}
-          <label className='font-bold text-xl' htmlFor="">
+          <label className='font-bold text-3xl' htmlFor="">
             LIVES : {lives}
           </label>
         </div>
