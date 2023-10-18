@@ -2,11 +2,19 @@ import { useState } from 'react'
 import { Question, Options } from './components/Index.js'
 
 function App() {
-  const [index0, setindex0] = useState(0)
-  const [index1, setindex1] = useState(0)
-  const [index2, setindex2] = useState(1)
-  const [index3, setindex3] = useState(2)
-  const [index4, setindex4] = useState(3)
+  const random1 = [];
+    while (random1.length < 4) {
+      const randomValue = Math.floor(Math.random() * 193);
+      if (!random1.includes(randomValue)) {
+        random1.push(randomValue);
+      }
+    }
+    random1.push(Math.floor(Math.random() * 3))
+  const [index0, setindex0] = useState(random1[random1[4]])
+  const [index1, setindex1] = useState(random1[0])
+  const [index2, setindex2] = useState(random1[1])
+  const [index3, setindex3] = useState(random1[2])
+  const [index4, setindex4] = useState(random1[3])
   const [bgColor1, setbgColor1] = useState('bg-gray-600')
   const [bgColor2, setbgColor2] = useState('bg-gray-600')
   const [bgColor3, setbgColor3] = useState('bg-gray-600')
@@ -15,32 +23,36 @@ function App() {
   const [score, setScore] = useState(0)
   const [lives, setlives] = useState(3)
 
+  const [flag, setflag] = useState(1);
+
   function check(e){
-    if(e==index0){
+    console.log(e);
+    if(flag && e.countryCodeIdx==index0 && e.classadd=="bg-gray-600"){
+      setflag(0);
       setScore((prev) => prev+1);
-      if(e==index1){
+      if(e.countryCodeIdx==index1){
         setbgColor1('bg-green-500');
-      }else if(e==index2){
+      }else if(e.countryCodeIdx==index2){
         setbgColor2('bg-green-500');
-      }else if(e==index3){
+      }else if(e.countryCodeIdx==index3){
         setbgColor3('bg-green-500');
       }else{
         setbgColor4('bg-green-500');
       }
       next();
-    }else{
+    }else if(flag && e.classadd=="bg-gray-600"){
       if(lives==1){
-        alert("Game Over");
+        alert(`GAME OVER YOUR SCORE IS - ${score}`);
         setlives(3);
         setScore(0);
         next();
       }else{
         setlives((prev)=>prev-1);
-        if(e==index1){
+        if(e.countryCodeIdx==index1){
           setbgColor1('bg-red-700');
-        }else if(e==index2){
+        }else if(e.countryCodeIdx==index2){
           setbgColor2('bg-red-700');
-        }else if(e==index3){
+        }else if(e.countryCodeIdx==index3){
           setbgColor3('bg-red-700');
         }else{
           setbgColor4('bg-red-700');
@@ -50,15 +62,21 @@ function App() {
   }
 
   const next = () => {
-    const random = [
-      Math.floor(Math.random() * 194),
-      Math.floor(Math.random() * 194),
-      Math.floor(Math.random() * 194),
-      Math.floor(Math.random() * 194),
-      (Math.floor(Math.random()*4))
-    ]
+  const random = [];
+    while (random.length < 4) {
+      const randomValue = Math.floor(Math.random() * 193);
+      if (!random.includes(randomValue)) {
+        random.push(randomValue);
+      }
+    }
+    random.push(Math.floor(Math.random() * 3))
     setTimeout(() => {
       setindex0(random[random[4]]);
+      console.log(random[random[4]]);
+      console.log(random[0]);
+      console.log(random[1]);
+      console.log(random[2]);
+      console.log(random[3]);
     }, 600);
     setTimeout(() => {
       setindex1(random[0]);
@@ -69,12 +87,13 @@ function App() {
       setbgColor2('bg-gray-600');
       setbgColor3('bg-gray-600');
       setbgColor4('bg-gray-600');
+      setflag(1);
     }, 800);
   }
 
   return (
     <div className='h-screen w-full flex flex-wrap justify-center items-center bg-cover bg-no-repeat bg-gray-800'>
-      <div className='w-1/2 h-screen flex flex-col bg-gray-600 rounded-lg border-2'>
+      <div className='w-full lg:w-1/2 h-screen flex flex-col bg-gray-600 rounded-lg border-2'>
         <div className='h-1/6 w-full flex justify-center items-center'>
           <Question
             countryCodeIdx={index0}
