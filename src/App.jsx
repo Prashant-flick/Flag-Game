@@ -93,7 +93,7 @@ function App() {
 
   return (
     <div className='h-screen w-full flex flex-wrap justify-center items-center bg-cover bg-no-repeat bg-gray-800'>
-      <div className='w-full lg:w-1/2 h-screen flex flex-col bg-gray-600 rounded-lg border-2'>
+      <div className='w-full h-5/6 lg:h-screen lg:w-1/2 flex flex-col bg-gray-600 rounded-lg border-2'>
         <div className='h-1/6 w-full flex justify-center items-center'>
           <Question
             countryCodeIdx={index0}
